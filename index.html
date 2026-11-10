@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PQC Migration Plan · Keyfactor Command (concept)</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <svg viewBox="0 0 40 44" aria-label="Keyfactor Command">
+      <polygon points="20,1 37,11 37,19 30,15 30,13 20,7" fill="#7b6cf6"/>
+      <polygon points="20,1 3,11 3,31 10,35 10,15 20,9" fill="#5b4ae6"/>
+      <polygon points="37,21 37,31 20,43 3,33 10,29 20,35 30,29 30,25" fill="#3f2fd0"/>
+      <polygon points="20,15 27,19 27,25 20,29 13,25 13,19" fill="#181818"/>
+    </svg>
+    <div class="w"><small>Keyfactor</small><span>Command</span></div>
+  </div>
+  <div class="user">PKI Administrator <i class="fa-solid fa-bell"></i></div>
+</header>
+
+<nav class="side">
+  <div class="collapse"><i class="fa-solid fa-arrow-left-long"></i></div>
+  <div class="nav">
+    <a><i class="fa-solid fa-table-cells-large"></i>Dashboard</a>
+    <a class="on"><i class="fa-solid fa-lock"></i>Certificates</a>
+    <a><i class="fa-solid fa-award"></i>Enrollment</a>
+    <a><i class="fa-regular fa-bell"></i>Alerts</a>
+    <a><i class="fa-solid fa-people-group"></i>Workflow</a>
+    <a><i class="fa-regular fa-map"></i>Locations</a>
+    <a><i class="fa-solid fa-server"></i>Orchestrators</a>
+    <div class="sep"></div>
+    <a><i class="fa-solid fa-gear"></i>System Settings</a>
+    <a><i class="fa-regular fa-circle-question"></i>Help</a>
+  </div>
+  <div class="ver">v26.2.1.1104</div>
+  <div class="out"><i class="fa-solid fa-right-from-bracket" style="font-size:13px"></i>LOGOUT</div>
+  <div class="copy">© 2026 Keyfactor. All rights reserved.</div>
+</nav>
+
+<main class="panel">
+  <h1>PQC Migration Plan <span class="q">?</span> <span class="ri-chip">Risk Intelligence</span></h1>
+  <div class="desc">Orders your quantum-vulnerable systems into a migration schedule that minimizes expected exposure. Each system's exposure is the traffic or signatures it keeps producing with RSA/ECC before it is migrated, weighted by how long that protection must hold (Mosca's X + Y &gt; Z) and by the probability that a cryptographically relevant quantum computer exists by then. Dependencies (HSM firmware, CA hierarchy) and vendor PQC support dates are respected.</div>
+  <div class="controls">
+    <div class="fld"><label>Collection</label><select id="selColl"><option>All Certificates (16,856)</option></select></div>
+    <div class="fld"><label>CRQC Timeline</label><select id="selScen"></select></div>
+    <div class="fld"><label>Migration Capacity</label><select id="selCap"></select></div>
+    <div class="fld"><label>Plan Start</label><select><option>Q1 2027</option></select></div>
+    <button class="btn blk" id="btnPlan">Plan</button>
+    <button class="btn out" id="btnCmp">Compare</button>
+    <button class="btn dis">Save</button>
+  </div>
+  <div class="chk"><span><i class="on"></i>Respect vendor PQC dates</span><span><i class="on"></i>Respect CA / HSM dependencies</span><span><i></i>Include expired</span></div>
+
+  <div class="tabs" id="tabs"><div class="on" data-t="plan">Plan</div><div data-t="systems">Systems</div><div data-t="assumptions">Assumptions</div></div>
+
+  <div class="tiles" id="tiles"></div>
+
+  <section id="tab-plan">
+    <div class="split">
+      <div class="card">
+        <div class="card-h"><h3>Expected exposure over time</h3><span class="sp"></span><span class="note" id="chartNote"></span></div>
+        <div class="legend" id="legend"></div>
+        <div class="chart-wrap" id="chart"></div>
+      </div>
+      <div class="card">
+        <div class="card-h"><h3>Why this order</h3><span class="sp"></span><span class="note">largest moves vs. score-ranked waves</span></div>
+        <div class="why" id="why"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tab-systems-wrap">
+    <div class="grid">
+      <div class="gbar"><span class="b">View</span><span class="b dis">Edit</span><span class="b">Get CSV</span><span class="b">Export Plan</span><span class="tot" id="total"></span><span class="ref"><i class="fa-solid fa-arrows-rotate"></i></span></div>
+      <table id="tbl"></table>
+    </div>
+  </section>
+
+  <section id="tab-assumptions" class="hidden"><div class="card"><div class="assump" id="assump"></div></div></section>
+
+  <div class="foot">Unofficial concept demo by Mohith Gajjela. Not affiliated with Keyfactor. Synthetic inventory (seeded generator in the repo); CRQC timeline fitted to the GRI Quantum Threat Timeline Report 2024. All numbers are computed in your browser.</div>
+</main>
+<div class="tip hidden" id="tip"></div>
+<script type="module" src="app.js"></script>
+</body>
+</html>
