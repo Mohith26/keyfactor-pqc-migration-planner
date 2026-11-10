@@ -26,7 +26,7 @@ Synthetic inventory: 36 systems, 16,856 certificates, 282.6 engineer-weeks of mi
 | GRI 2024, average reading | 2 engineers | 224.9 | 282.3 | -20.3% | +0.59 |
 | GRI 2024, pessimistic reading | 4 engineers | 134.9 | 143.0 | -5.7% | +1.93 |
 
-Same finish date in every row (Q4 2029 at 2 engineers). The average completion date of the 13 systems whose data must stay protected 10+ years moves from mid-2028 to Q2 2028 at 2 engineers, and from 2030.4 to 2029.4 at 1 engineer. The gain shrinks as capacity grows, because vendor PQC release dates become the bottleneck rather than the team.
+Same finish date in every row (Q4 2029 at 2 engineers). The average completion date of the 13 systems whose data must stay protected 10+ years moves from Q3 2028 to Q2 2028 at 2 engineers, and from 2030.4 to 2029.4 at 1 engineer. The gain shrinks as capacity grows, because vendor PQC release dates become the bottleneck rather than the team.
 
 ## How it works
 
